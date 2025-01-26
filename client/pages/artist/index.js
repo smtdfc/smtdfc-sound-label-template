@@ -9,6 +9,9 @@ export const Page = Turtle.createComponent({
     this.userInfo = this.app.auth.user._info;
   },
 
+onRender(){
+this.app.api.client.artist.list()
+},
   
   template() {
     return this.html`

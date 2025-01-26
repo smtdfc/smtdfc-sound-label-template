@@ -1,5 +1,6 @@
 import { APIClientAppEventEmitter } from './events.js';
 import { APIClientAuth } from './auth/index.js';
+import {APIClientArtistManage} from './artist/index.js';
 import { Cofigurations } from '../configs/app.js';
 
 export function initClientAPI(app) {
@@ -8,6 +9,7 @@ export function initClientAPI(app) {
   })
   if (Cofigurations.AUTH_REQUIRE) {
     app.api.client.addModule(APIClientAuth)
+    app.api.client.addModule(APIClientArtistManage)
     app.auth = app.api.client.auth
     app.authenticated = function() {
       return new Promise((resolve, reject) => {

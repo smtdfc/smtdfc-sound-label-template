@@ -1,4 +1,7 @@
-export async function list(userID){
+const { generateID } = require("../../utils/id.js");
+
+
+module.exports.list =  async function(userID){
   const list = await globalThis.Models.Artists.findAll({
     where:{
       createBy:userID
@@ -9,3 +12,15 @@ export async function list(userID){
   
   return list
 }
+
+module.exports.create =  async function(name, streams={},createBy=""){
+  const info = await globalThis.Models.Artists.create({
+    artistID:generateID(),
+    name,
+    streams:JSON.stringify(streams),
+    createBy
+  });
+  
+  return info
+}
+
