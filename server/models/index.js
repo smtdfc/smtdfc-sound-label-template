@@ -143,7 +143,7 @@ module.exports = function initModel() {
       type: DataTypes.TEXT,
       field: 'app_id',
     },
-    rid:{
+    rid: {
       type: DataTypes.STRING,
     },
     sid: {
@@ -168,6 +168,52 @@ module.exports = function initModel() {
     timestamps: false
   });
 
+  const Artists = globalThis._db.main.define('artists', {
+    artistID: {
+      type: DataTypes.TEXT,
+      primaryKey: true,
+      field: 'artist_id',
+    },
+    name: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    email: {
+      type: DataTypes.STRING,
+      unique: true,
+      allowNull: true,
+    },
+    userID: {
+      type: DataTypes.TEXT,
+      aultValue: true,
+      field: 'user_id',
+    },
+    streams: {
+      type: DataTypes.STRING,
+      unique: true,
+      allowNull: false,
+      field: 'streams',
+    },
+    avatar: {
+      type: DataTypes.STRING,
+      allowNull: true,
+      field: 'avatar'
+    },
+    createBy:{
+      type: DataTypes.STRING,
+      allowNull: true,
+      field: 'create_by'
+    },
+    status: {
+      type: DataTypes.STRING,
+      defaultValue: 'active',
+    },
+  }, {
+    freezeTableName: true,
+    tableName: 'artists',
+    underscored: true,
+    timestamps: false
+  });
 
   // Define Associations
   UserAuth.belongsTo(UserAccounts, { foreignKey: 'userID', as: 'userInfo' });
@@ -183,5 +229,6 @@ module.exports = function initModel() {
     UserAuth,
     Session,
     LoginHistory,
+    Artists
   };
 }

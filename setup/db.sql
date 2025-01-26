@@ -10,12 +10,13 @@ CREATE TABLE user_accounts (
 
 -- Create UserAuth table
 CREATE TABLE user_auth (
+  id INTEGER,
   user_id TEXT REFERENCES user_accounts(user_id),
   auth_type VARCHAR NOT NULL,
   auth_provider VARCHAR,
   auth_key VARCHAR NOT NULL,
   status VARCHAR DEFAULT 'active',
-  PRIMARY KEY (user_id, auth_key)
+  PRIMARY KEY (id,user_id, auth_key)
 );
 
 -- Create Sessions table
@@ -39,4 +40,15 @@ CREATE TABLE login_histories (
   time TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   ip INET NOT NULL,
   metadata JSONB DEFAULT '{}'
+);
+
+CREATE TABLE artists (
+    artist_id TEXT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    email VARCHAR(255) UNIQUE,
+    user_id TEXT DEFAULT NULL,
+    streams VARCHAR(255) UNIQUE NOT NULL,
+    avatar VARCHAR(255),
+    status VARCHAR(255) DEFAULT 'active',
+    create_by VARCHAR(255) DEFAULT NULL
 );
