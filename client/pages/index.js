@@ -1,3 +1,6 @@
+import {EmptyMessage} from '../components/EmptyMessage.js';
+
+
 export const Page = Turtle.createComponent({
    onInit:async function() {
     if (!await this.app.authenticated()) {
@@ -44,11 +47,11 @@ export const Page = Turtle.createComponent({
         <div class=" d-flex align-items-center justify-content-sa" style="overflow-y:hidden;overflow-x:scroll;scroll-snap-type: x mandatory;scroll-padding-left: 20px;" >
           <div class=" card text-align-center" style="min-width:200px" >
             <h3 class="d-flex align-items-center justify-content-center" style="gap:10px" ><span class="material-symbols-outlined">bolt</span><span>Released </span></h3>
-            <h2>10</h2>
+            <h2>0</h2>
           </div>
           <div class=" card text-align-center" style="min-width:200px">
             <h3 class="d-flex align-items-center justify-content-center" style="gap:10px" ><span class="material-symbols-outlined">stacks</span><span>Review </span></h3>
-            <h2>10</h2>
+            <h2>0</h2>
           </div>
           <div class=" card text-align-center" style="min-width:200px">
             <h3 class="d-flex align-items-center justify-content-center" style="gap:10px" ><span class="material-symbols-outlined">schedule</span><span>Scheduled</span></h3>
@@ -68,10 +71,13 @@ export const Page = Turtle.createComponent({
               </tr>
             </thead>
             <tbody t-ref="table">
-
             </tbody>
           </table>
         </div>
+        <${EmptyMessage(
+            "No album here",
+            true
+        )}/>
       </div>
     `;
   }

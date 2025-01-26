@@ -21,7 +21,7 @@ export const Container = Turtle.createComponent({
         <div class="sidebar-body">
           <ul class="sidebar-menu">
             <li><a href="#!/"><i class="material-symbols-outlined">home</i>Home</a></li>
-            <li><a href="#!/home"><i class="material-symbols-outlined">music_note</i>Tracks</a></li>
+            <li><a href="#!/home"><i class="material-symbols-outlined">music_note</i>Albums</a></li>
             <li><a href="#!/home"><i class="material-symbols-outlined">group</i>Artists</a></li>
             <li><a href="#!/home"><i class="material-symbols-outlined">bookmark_flag</i>Labels</a></li>
             <li><a href="#!/home"><i class="material-symbols-outlined">settings</i>Settings</a></li>
