@@ -1,4 +1,4 @@
-reuqire("dotenv").config()
+require("dotenv").config()
 const fastify = require("fastify");
 const model = require("./models")
 const routes = require("./routes")
