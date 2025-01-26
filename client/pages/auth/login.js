@@ -4,7 +4,6 @@ export const Page = Turtle.createComponent({
   },
 
   onLoginBtnClick: function(e) {
-    
     e.target.disabled = true
     e.preventDefault()
     this.auth.login(

@@ -1,28 +1,29 @@
-class Component extends Turtle.TurtleComponent {
+export const Page =  Turtle.createComponent({
   onInit() {
+//   console.log(q)
     this.auth = this.app.auth
-  }
+  },
 
   onRegBtnClick(e) {
-    this.alertMessage.set("")
+    this.states.alertMessage = ""
     e.target.disabled = true
     e.preventDefault()
     this.auth.register(
-        this.nameInput.value,
-        this.emailInput.value,
-        this.usernameInput.value,
-        this.passwordInput.value,
-      )
+        this.states.nameInput,
+        this.states.emailInput,
+        this.states.usernameInput,
+        this.states.passwordInput,
+     )
       .then((user) => {
         this.app.router.redirect("/login", true)
       })
       .catch((err) => {
-        this.alertMessage.set(err.message)
+        this.states.alertMessage = err.message
       })
       .finally(() => {
         e.target.disabled = false
       })
-  }
+  },
 
   template() {
     return this.html`
@@ -31,7 +32,7 @@ class Component extends Turtle.TurtleComponent {
           <h2 class="text-align-center" >Welcome to our service</h2>
           <p class="text-align-center" >Create account now !</p>
           <p class="text-align-center" t-text="alertMessage"  style="color:red;" >Opp</p>
-          <form>
+          <div>
             <div class="form-group">
               <label class="form-label">Email:</label>
               <input t-model="emailInput" type="email" class="form-input" />
@@ -57,11 +58,10 @@ class Component extends Turtle.TurtleComponent {
               <button t-events="click:onRegBtnClick" class="btn btn-primary m-0 py-3 px-5" style="width:98%;">Create account</button>
               <a href="#!/login">Already have an account?</a>
             </div>
-          </form>
+          </div>
         </div>
       </div>
     `
   }
-}
+})
 
-export const Page = Turtle.createComponent(Component)
