@@ -1,0 +1,1 @@
+# smtdfc-sound-label-template
