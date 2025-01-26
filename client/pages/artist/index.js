@@ -12,8 +12,8 @@ export const Page = Turtle.createComponent({
   
   template() {
     return this.html`
-      <div class="root fade-in container" style="padding-top:5rem; min-height:100vh;" ref="container">
-        <div class="d-flex align-items-center px-3">
+      <div class="root fade-in " style="min-height:80vh;" ref="container">
+        <div class="d-flex align-items-center ">
           <a href="#!/" class="material-symbols-outlined btn-icon">arrow_back</a>
           <div class="ml-3 d-flex flex-col">
             <h3 class="m-0">Artist Management</h3>

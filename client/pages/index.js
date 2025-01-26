@@ -45,15 +45,15 @@ export const Page = Turtle.createComponent({
       <div class="root "  ref="container">
         <h2>Overview</h2>
         <div class=" d-flex align-items-center justify-content-sa" style="overflow-y:hidden;overflow-x:scroll;scroll-snap-type: x mandatory;scroll-padding-left: 20px;" >
-          <div class=" card text-align-center" style="min-width:200px" >
+          <div class="fade-in-up card text-align-center" style="min-width:200px" >
             <h3 class="d-flex align-items-center justify-content-center" style="gap:10px" ><span class="material-symbols-outlined">bolt</span><span>Released </span></h3>
             <h2>0</h2>
           </div>
-          <div class=" card text-align-center" style="min-width:200px">
+          <div class="fade-in-down  card text-align-center" style="min-width:200px">
             <h3 class="d-flex align-items-center justify-content-center" style="gap:10px" ><span class="material-symbols-outlined">stacks</span><span>Review </span></h3>
             <h2>0</h2>
           </div>
-          <div class=" card text-align-center" style="min-width:200px">
+          <div class="fade-in-up  card text-align-center" style="min-width:200px">
             <h3 class="d-flex align-items-center justify-content-center" style="gap:10px" ><span class="material-symbols-outlined">schedule</span><span>Scheduled</span></h3>
             <h2>0</h2>
           </div>

@@ -24,6 +24,12 @@ export function initRouter(app) {
         return (await import("../pages/auth/register.js")).Page;
       }
     },  
+    "/artist/manage": {
+      loader: async () => {
+        return (await import("../pages/artist/index.js")).Page;
+      }
+    },  
+
   }
   router.on("pagechange", function() {
     document.getElementById("overlay").classList.add("active")
