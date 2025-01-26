@@ -53,7 +53,7 @@ export const Page = Turtle.createComponent({
           </div>
         </div>
 
-        <h2>Recent Album</h2>
+        <h2>Recent Albums</h2>
         <div class="table-responsive" style="overflow-x:scroll" >
           <table class="table">
             <thead>
