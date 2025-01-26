@@ -1,6 +1,7 @@
 reuqire("dotenv").config()
 const fastify = require("fastify");
-
+const model = require("./models")
+const routes = require("./routes")
 
 const app = fastify();
 
@@ -34,4 +35,6 @@ app.register(require("@fastify/cookie"), {
   parseOptions: {},
 });
 
+model()
+routes(app)
 app.listen({ port: ServerConfiguration.SERVER_PORT });
