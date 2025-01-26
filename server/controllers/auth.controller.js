@@ -14,7 +14,6 @@ class AuthController {
 
       return responseSuccess(req, res, userInfo)
     } catch (err) {
-      console.log(err)
       return responseError(req, res, err)
     }
   }

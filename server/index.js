@@ -1,7 +1,9 @@
 require("dotenv").config()
 const fastify = require("fastify");
+const path = require("path")
 const model = require("./models")
 const routes = require("./routes")
+const ServerConfiguration = require("./configs/server");
 
 const app = fastify();
 

@@ -1,19 +1,28 @@
 import { Cofigurations } from '../configs/app.js';
 
+
 export const Navbar = Turtle.createComponent({
   states: {
-    isAuthed: true,
-    userAvatar:"",
+    isAuthed: false,
+    userAvatar: "",
   },
-  
+
   onInit: function() {
-      },
+    this.auth = this.app.api.client.auth
+    this.userInfo = this.app.auth.user._info
+    this.app.api.client.eventEmitter.on("auth:change", (data) => this.onAuthStateChange(data))
+  },
+
+  onAuthStateChange: function(user) {
+    this.states.userAvatar = user._info.avatar
+    this.states.isAuthed = user._info.userID ? true : false
+  },
 
   template: function() {
     return this.html`
       <nav class="navbar shadow backdrop-blur fade-in-down bg-transparent " id="navbar" >
         <div class="navbar-header">
-          <button t-show="isAuthed" class="navbar-toggle-btn btn-icon material-symbols-outlined" data-taction="sidebar:toggle:#main-sidebar">menu</button>
+          <button t-show="isAuthed" data-taction="sidebar:toggle:#main-sidebar" class="navbar-toggle-btn btn-icon material-symbols-outlined">menu</button>
           <h3 class="navbar-title">${Cofigurations.APP_NAME}</h3>
         </div>
         <div class="navbar-items">

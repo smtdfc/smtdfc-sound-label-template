@@ -11,27 +11,20 @@ export function initRouter(app) {
   router.routes = {
     "/": {
       loader: async () => {
-       
         return (await import("../pages/index.js")).Page;
       }
     },
-    "/auth/login": {
+    "/login": {
       loader: async () => {
-        return (await import("../pages/sso/login.js")).Page;
+        return (await import("../pages/auth/login.js")).Page;
       }
     },
-    "/details/:id": {
+    "/register": {
       loader: async () => {
-        return (await import("../pages/entity/details.js")).Page;
-      }
-    },
-     "/analytis/:id": {
-      loader: async () => {
-        return (await import("../pages/entity/analytis.js")).Page;
+        return (await import("../pages/auth/register.js")).Page;
       }
     },
   }
-
   router.on("pagechange", function() {
     document.getElementById("overlay").classList.add("active")
   })

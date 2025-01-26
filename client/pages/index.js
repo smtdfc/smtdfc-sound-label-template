@@ -1,11 +1,14 @@
 export const Page = Turtle.createComponent({
-  onInit() {
-
-    
+   onInit:async function() {
+    if (!await this.app.authenticated()) {
+      this.app.router.redirect("/login", true)
+    }
+    this.userInfo = this.app.auth.user._info
   },
 
+
   onRender() {
-    
+
   },
 
   onEditBtnClick(event) {
@@ -36,7 +39,7 @@ export const Page = Turtle.createComponent({
 
   template() {
     return this.html`
-      <div class="root " style=" min-height:100vh;" ref="container">
+      <div class="root "  ref="container">
         <h2>Overview</h2>
         <div class=" d-flex align-items-center justify-content-sa" style="overflow-y:hidden;overflow-x:scroll;scroll-snap-type: x mandatory;scroll-padding-left: 20px;" >
           <div class=" card text-align-center" style="min-width:200px" >

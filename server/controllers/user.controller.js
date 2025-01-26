@@ -1,6 +1,5 @@
 const UserService = require("../services/user")
 const { responseSuccess, responseError } = require("../utils/response.js")
-const { callService } = require("../external/services")
 
 class UserController {
   static async updateName(req, res) {
