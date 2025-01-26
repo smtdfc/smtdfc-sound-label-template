@@ -10,7 +10,7 @@ class ArtistController {
 
       return responseSuccess(req, res,
       {
-        list:results,
+        list: results,
       })
     } catch (err) {
       console.log(err)
@@ -18,7 +18,25 @@ class ArtistController {
     }
   }
 
-  
+  static async create(req, res) {
+    try {
+      let { name, streams } = req.body
+      let results = await ArtistService.create(
+        name,
+        streams,
+        req.user.userID
+      )
+
+      return responseSuccess(req, res,
+      {
+        info: results,
+      })
+    } catch (err) {
+      console.log(err)
+      return responseError(req, res, err)
+    }
+  }
+
 }
 
 module.exports = ArtistController
