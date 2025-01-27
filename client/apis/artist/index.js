@@ -8,9 +8,11 @@ export class APIClientArtistManage {
   }
 
   async list() {
-    this.axiosInstance.post("/api/v1/artist/list", {}, {
+    let { data } = await this.axiosInstance.post("/api/v1/artist/list", {}, {
       withCredentials: true,
     })
+    
+    return data.results.list
   }
 
   async create(name = "", streams = {}) {

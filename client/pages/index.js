@@ -75,6 +75,7 @@ export const Page = Turtle.createComponent({
           </table>
         </div>
         <${EmptyMessage(
+            {},
             "No album here",
             true
         )}/>
