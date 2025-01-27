@@ -20,7 +20,7 @@ export const Navbar = Turtle.createComponent({
 
   template: function() {
     return this.html`
-      <nav class="navbar shadow backdrop-blur fade-in-down bg-transparent " id="navbar" >
+      <nav class="navbar shadow backdrop-blur fade-in-down bg-transparent " id="main-navbar" >
         <div class="navbar-header">
           <button t-show="isAuthed" data-taction="sidebar:toggle:#main-sidebar" class="navbar-toggle-btn btn-icon material-symbols-outlined">menu</button>
           <h3 class="navbar-title">${Cofigurations.APP_NAME}</h3>

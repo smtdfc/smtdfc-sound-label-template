@@ -1,8 +1,11 @@
+import {isMobile} from '../utils/devices.js';
+
 export const Container = Turtle.createComponent({
-  states:{
-    isAuthed:false
+  isSynchronous: true,
+  states: {
+    isAuthed: false
   },
-  
+
   onInit: function() {
     this.auth = this.app.api.client.auth
     this.app.api.client.eventEmitter.on("auth:change", (data) => this.onAuthStateChange(data))
@@ -11,7 +14,27 @@ export const Container = Turtle.createComponent({
   onAuthStateChange: function(user) {
     this.states.isAuthed = user._info.userID ? true : false
   },
-  template(){
+
+  onRender() {
+    if(isMobile()){
+    const element = document.querySelector('#contents');
+    function checkScroll() {
+      const elementHeight = element.scrollHeight; 
+      const scrollPosition = element.scrollTop; 
+      const visibleHeight = element.clientHeight;
+      const scrollPercentage = (scrollPosition / (elementHeight - visibleHeight)) * 100;
+      if (scrollPercentage >= 40) {
+        document.getElementById("main-navbar").classList.add("shadow")
+      }else{
+        document.getElementById("main-navbar").classList.remove("shadow")
+      }
+    }
+
+    element.addEventListener('scroll', checkScroll);
+    }
+  },
+
+  template() {
     return this.html`
     <div class="sidebar-container">
       <div class="sidebar" t-show="isAuthed" id="main-sidebar" >
@@ -34,7 +57,7 @@ export const Container = Turtle.createComponent({
           </div>
         </div>
       </div>
-      <span class="contents px-3" id="contents" style="padding-top:5rem" ></span>
+      <span class="contents px-3" id="contents" style="padding-top:5rem;" ></span>
     </div>
     `
   }

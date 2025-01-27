@@ -1,29 +1,27 @@
-import {EmptyMessage} from '../../components/EmptyMessage.js';
+import { EmptyMessage } from '../../components/EmptyMessage.js';
 
 export const Page = Turtle.createComponent({
-  states:{
-    isLoading:true
+  states: {
+    isLoading: true,
   },
-  async onCreate() {
-    this.emptyMessageRef = {}
-    if (!this.app.authenticated()) {
+  
+  async onInit() {
+    if (!await this.app.authenticated()) {
       this.app.router.redirect("/login", true);
-      return;
+      return false;
     }
     this.userInfo = this.app.auth.user._info;
   },
 
   onRender() {
-    console.log(this)
-    console.log(this.states.isLoading)
+    let {emptyMessage} = this.refs
+    emptyMessage.hide()
     this.app.api.client.artist.list()
-    .then((list)=>{
-      
-    })
-    .finally(()=>{
-      console.log(1)
-      this.states.isLoading = false
-    })
+      .then((list) => {
+        if(list.length == 0) emptyMessage.show()
+        else emptyMessage.hide()
+        this.states.isLoading = false
+      })
   },
 
   template() {
@@ -46,7 +44,7 @@ export const Page = Turtle.createComponent({
             <div/>
           </div>
           <${EmptyMessage(
-            this.emptyMessageRef,
+            this.forwardRef("emptyMessage"),
             "No artist here",
             true
           )}/>
