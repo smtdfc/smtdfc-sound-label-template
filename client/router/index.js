@@ -29,6 +29,11 @@ export function initRouter(app) {
         return (await import("../pages/artist/index.js")).Page;
       }
     },  
+    "/artist/:id/edit": {
+      loader: async () => {
+        return (await import("../pages/artist/edit.js")).Page;
+      }
+    },  
 
   }
   router.on("pagechange", function() {

@@ -37,7 +37,7 @@ export const AddArtistModal = Turtle.createComponent({
 
   async onAddBtnClick() {
     let [forwardRef] = this.props
-    await this.app.api.client.artist.create(
+    let info = await this.app.api.client.artist.create(
       this.states.artistName,
       this.states.legalName,
       {
@@ -48,19 +48,8 @@ export const AddArtistModal = Turtle.createComponent({
       this.refs.avatarInput.files[0]
     )
 
-    forwardRef.onAdded?.({
-      name: this.states.artistName,
-      legalName:this.states.legalName,
-      streams: {
-        spotify: this.states.spotify,
-        appleMusic: this.states.appleMusic,
-        soundCloud: this.states.soundCloud
-      },
-      avatar: this.refs.avatarInput.files[0]
-    })
-
+    forwardRef.onAdded?.(info)
     new TurtleUI.TurtleUIModal(this.refs.modal).close()
-
   },
 
   template() {
@@ -102,7 +91,7 @@ export const AddArtistModal = Turtle.createComponent({
               </div>
               <br/>
               <div class="d-flex">
-                <button t-events="click:onAddBtnClick" class="ml-auto btn btn-primary ">Add</button>
+                <button t-events="click:onAddBtnClick" class="ml-auto btn btn-primary " style="width:85px">Add</button>
               </div>
           </div>
         </div>

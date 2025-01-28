@@ -22,6 +22,10 @@ export const Page = Turtle.createComponent({
           <h5 class="m-0" >${info.name}</h5>
           <span class="sub-text">Artist/Producer</span>
         </span>
+        <span class="ml-auto">
+          <button data-id="${info.artistID}" t-events="click:onEditBtnClick" class="btn-icon material-symbols-outlined notranslate">edit</button>
+          <button data-id="${info.artistID}" class="btn-icon material-symbols-outlined notranslate">delete</button>
+        </span>
       </li>
     `)
   },
@@ -43,6 +47,11 @@ export const Page = Turtle.createComponent({
     this.refs.addArtistModal.show()
   },
 
+  onEditBtnClick(e) {
+    let artistID = e.target.dataset.id
+    this.app.router.redirect(`/artist/${artistID}/edit`)
+  },
+  
   template() {
     return this.html`
       <div class="root fade-in " style="min-height:80vh;" ref="container">
