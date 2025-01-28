@@ -33,8 +33,8 @@ export const Page = Turtle.createComponent({
         <td><a class="link" href="${data.host}">${data.host}</a></td>
         <td>${data.type}</td>
         <td class="d-flex justify-content-center">
-          <button t-events="click:onEditBtnClick" data-id="${data.entity_id}" class="btn-icon material-symbols-outlined">edit</button>
-          <button t-events="click:onAnalytisBtnClick" data-id="${data.entity_id}" class="btn-icon material-symbols-outlined">monitoring</button>
+          <button t-events="click:onEditBtnClick" data-id="${data.entity_id}" class="btn-icon material-symbols-outlined notranslate">edit</button>
+          <button t-events="click:onAnalytisBtnClick" data-id="${data.entity_id}" class="btn-icon material-symbols-outlined notranslate">monitoring</button>
         </td>
       </tr>
     `)
@@ -46,15 +46,15 @@ export const Page = Turtle.createComponent({
         <h2>Overview</h2>
         <div class=" d-flex align-items-center justify-content-sa" style="overflow-y:hidden;overflow-x:scroll;scroll-snap-type: x mandatory;scroll-padding-left: 20px;" >
           <div class="fade-in-up card text-align-center" style="min-width:200px" >
-            <h3 class="d-flex align-items-center justify-content-center" style="gap:10px" ><span class="material-symbols-outlined">bolt</span><span>Released </span></h3>
+            <h3 class="d-flex align-items-center justify-content-center" style="gap:10px" ><span class="material-symbols-outlined notranslate">bolt</span><span>Released </span></h3>
             <h2>0</h2>
           </div>
           <div class="fade-in-down  card text-align-center" style="min-width:200px">
-            <h3 class="d-flex align-items-center justify-content-center" style="gap:10px" ><span class="material-symbols-outlined">stacks</span><span>Review </span></h3>
+            <h3 class="d-flex align-items-center justify-content-center" style="gap:10px" ><span class="material-symbols-outlined notranslate">stacks</span><span>Review </span></h3>
             <h2>0</h2>
           </div>
           <div class="fade-in-up  card text-align-center" style="min-width:200px">
-            <h3 class="d-flex align-items-center justify-content-center" style="gap:10px" ><span class="material-symbols-outlined">schedule</span><span>Scheduled</span></h3>
+            <h3 class="d-flex align-items-center justify-content-center" style="gap:10px" ><span class="material-symbols-outlined notranslate">schedule</span><span>Scheduled</span></h3>
             <h2>0</h2>
           </div>
         </div>

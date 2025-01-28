@@ -39,15 +39,15 @@ export const Container = Turtle.createComponent({
     <div class="sidebar-container">
       <div class="sidebar" t-show="isAuthed" id="main-sidebar" >
         <div class="sidebar-header">
-          <button class="sidebar-btn close-btn material-symbols-outlined btn-icon" data-taction="sidebar:toggle:#main-sidebar" >close</button>
+          <button class="sidebar-btn close-btn material-symbols-outlined notranslate btn-icon" data-taction="sidebar:toggle:#main-sidebar" >close</button>
         </div>
         <div class="sidebar-body">
           <ul class="sidebar-menu">
-            <li><a href="#!/"><i class="material-symbols-outlined">home</i>Home</a></li>
-            <li><a href="#!/home"><i class="material-symbols-outlined">music_note</i>Albums</a></li>
-            <li><a href="#!/artist/manage"><i class="material-symbols-outlined">group</i>Artists</a></li>
-            <li><a href="#!/home"><i class="material-symbols-outlined">bookmark_flag</i>Labels</a></li>
-            <li><a href="#!/home"><i class="material-symbols-outlined">settings</i>Settings</a></li>
+            <li><a href="#!/"><i class="material-symbols-outlined notranslate">home</i>Home</a></li>
+            <li><a href="#!/home"><i class="material-symbols-outlined notranslate">music_note</i>Albums</a></li>
+            <li><a href="#!/artist/manage"><i class="material-symbols-outlined notranslate">group</i>Artists</a></li>
+            <li><a href="#!/home"><i class="material-symbols-outlined notranslate">bookmark_flag</i>Labels</a></li>
+            <li><a href="#!/home"><i class="material-symbols-outlined notranslate">settings</i>Settings</a></li>
           </ul>
           <hr class="sidebar-separation"/>
           <div class="sub-text mt-7">
