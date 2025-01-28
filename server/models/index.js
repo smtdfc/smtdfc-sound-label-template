@@ -178,6 +178,11 @@ module.exports = function initModel() {
       type: DataTypes.STRING,
       allowNull: false,
     },
+    legalName: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      field: "legal_name"
+    },
     email: {
       type: DataTypes.STRING,
       unique: true,
@@ -199,7 +204,7 @@ module.exports = function initModel() {
       allowNull: true,
       field: 'avatar'
     },
-    createBy:{
+    createBy: {
       type: DataTypes.STRING,
       allowNull: true,
       field: 'create_by'

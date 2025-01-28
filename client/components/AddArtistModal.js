@@ -2,6 +2,7 @@ export const AddArtistModal = Turtle.createComponent({
   states: {
     isDisplay: false,
     artistName: "",
+    legalName:"",
     avatar: "",
     streams: {
       spotify: "",
@@ -38,6 +39,7 @@ export const AddArtistModal = Turtle.createComponent({
     let [forwardRef] = this.props
     await this.app.api.client.artist.create(
       this.states.artistName,
+      this.states.legalName,
       {
         spotify: this.states.spotify,
         appleMusic: this.states.appleMusic,
@@ -47,14 +49,18 @@ export const AddArtistModal = Turtle.createComponent({
     )
 
     forwardRef.onAdded?.({
-      name:this.states.artistName,
-      streams:{
+      name: this.states.artistName,
+      legalName:this.states.legalName,
+      streams: {
         spotify: this.states.spotify,
         appleMusic: this.states.appleMusic,
         soundCloud: this.states.soundCloud
       },
-      avatar:this.refs.avatarInput.files[0]
+      avatar: this.refs.avatarInput.files[0]
     })
+
+    new TurtleUI.TurtleUIModal(this.refs.modal).close()
+
   },
 
   template() {
@@ -79,6 +85,10 @@ export const AddArtistModal = Turtle.createComponent({
                 <input t-model="artistName" type="text" class="form-input" />
               </div>
               <div class="form-group">
+                <label class="form-label">Legal name:</label>
+                <input t-model="legalName" type="text" class="form-input" />
+              </div>
+              <div class="form-group">
                 <label class="form-label">Spotify Link:</label>
                 <input t-model="spotify" type="text" class="form-input " />
               </div>
@@ -91,7 +101,7 @@ export const AddArtistModal = Turtle.createComponent({
                 <input t-model="soundCloud" type="text" class="form-input" />
               </div>
               <br/>
-              <div class="d-flex ">
+              <div class="d-flex">
                 <button t-events="click:onAddBtnClick" class="ml-auto btn btn-primary ">Add</button>
               </div>
           </div>

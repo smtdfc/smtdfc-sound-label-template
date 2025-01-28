@@ -13,10 +13,12 @@ module.exports.list =  async function(userID){
   return list
 }
 
-module.exports.create =  async function(name, streams={},createBy=""){
+module.exports.create =  async function(name, legalName,streams={},avatar,createBy=""){
   const info = await globalThis.Models.Artists.create({
     artistID:generateID(),
     name,
+    legalName,
+    avatar,
     streams:JSON.stringify(streams),
     createBy
   });

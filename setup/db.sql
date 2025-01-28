@@ -45,6 +45,7 @@ CREATE TABLE login_histories (
 CREATE TABLE artists (
     artist_id TEXT PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
+    legal_name VARCHAR(255) NOT NULL,
     email VARCHAR(255) UNIQUE,
     user_id TEXT DEFAULT NULL,
     streams VARCHAR(255) UNIQUE NOT NULL,

@@ -40,10 +40,11 @@ export class APIClientArtistManage {
   }
 
 
-  async create(name = "", streams = {}, avatarFile = "") {
+  async create(name = "",legalName="",streams = {}, avatarFile = "") {
     let avatar = await this.uploadAvatar(avatarFile)
     let { data } = await this.axiosInstance.post("/api/v1/artist/create", {
       name,
+      legalName,
       avatar,
       streams
     }, {

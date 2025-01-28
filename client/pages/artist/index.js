@@ -14,21 +14,35 @@ export const Page = Turtle.createComponent({
     this.userInfo = this.app.auth.user._info;
   },
 
+  addRow(info) {
+    this.refs.list.prepend(this.html`
+      <li>
+        <img class="avatar avatar-sm" src="${info.avatar??"/public/assets/images/722264.jpg"}"/>
+        <span>
+          <h5 class="m-0" >${info.name}</h5>
+          <span class="sub-text">Artist/Producer</span>
+        </span>
+      </li>
+    `)
+  },
+
   onRender() {
-    let { emptyMessage } = this.refs
+    let { emptyMessage, addArtistModal } = this.refs
+    addArtistModal.onAdded = (info) => this.addRow(info)
     emptyMessage.hide()
     this.app.api.client.artist.list()
       .then((list) => {
         if (list.length == 0) emptyMessage.show()
         else emptyMessage.hide()
         this.states.isLoading = false
+        list.forEach((info) => this.addRow(info))
       })
   },
 
   onAddBtnClick() {
     this.refs.addArtistModal.show()
   },
-  
+
   template() {
     return this.html`
       <div class="root fade-in " style="min-height:80vh;" ref="container">
@@ -43,11 +57,8 @@ export const Page = Turtle.createComponent({
           <div class="container">
             <input class="form-input" style="padding:0.6rem; width:100%; " placeholder="Search artist..."/>
           </div>
-          <ul class="list list-hover">
-          </ul>
-          <div class="circle-loader" t-show="isLoading">
-            <div/>
-          </div>
+          <ul class="list list-hover" t-ref="list" />
+          <div class="circle-loader" t-show="isLoading" />
           <${EmptyMessage(
             this.forwardRef("emptyMessage"),
             "No artist here",

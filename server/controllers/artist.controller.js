@@ -20,10 +20,12 @@ class ArtistController {
 
   static async create(req, res) {
     try {
-      let { name, streams } = req.body
+      let { name, streams , avatar,legalName} = req.body
       let results = await ArtistService.create(
         name,
+        legalName,
         streams,
+        avatar,
         req.user.userID
       )
 
