@@ -36,7 +36,7 @@ export const AddArtistModal = Turtle.createComponent({
 
   async onAddBtnClick() {
     let [forwardRef] = this.props
-    this.app.api.client.artist.create(
+    await this.app.api.client.artist.create(
       this.states.artistName,
       {
         spotify: this.states.spotify,
