@@ -28,7 +28,6 @@ export const Page = Turtle.createComponent({
             <h3 class="m-0">Edit Artist Info</h3>
           </div>
         </div>
-        <div class="circle-loader" t-show="isLoading" />
         <div class="mt-5" t-hide="isLoading" >
           <div class="d-flex align-items-center justify-content-center">
             <div class="avatar-container">
@@ -62,6 +61,7 @@ export const Page = Turtle.createComponent({
             <button t-events="click:onAddBtnClick" class="ml-auto btn btn-primary " style="width:85px">Add</button>
           </div>
         </div>
+        <div class="mt-7 circle-loader" t-show="isLoading" />
       </div>
     `;
   },

@@ -14,7 +14,7 @@ async function init() {
     </div>
   `
 
-  setTimeout(() => initRouter(app), 100)
+  setTimeout(() => initRouter(app), 10)
 }
 
 init()
