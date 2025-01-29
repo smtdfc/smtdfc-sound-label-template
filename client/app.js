@@ -12,13 +12,9 @@ async function init() {
     <div class="overlay " style="height:100vh;z-index:10000;"  id="overlay">
       <div class="line-loader"/>
     </div>
-`
+  `
 
-setTimeout(() => initRouter(app), 100)
-  
-
-  
+  setTimeout(() => initRouter(app), 100)
 }
-
 
 init()

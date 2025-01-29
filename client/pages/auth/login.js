@@ -24,7 +24,7 @@ export const Page = Turtle.createComponent({
 
   template: function() {
     return this.html`
-      <div class="root fade container d-flex justify-content-center" style="padding-top:5rem; " ref="container">
+      <div class="root fade container d-flex justify-content-center" ref="container">
         <div class="card p-4 m-0" style="width:350px; height:470px;" >
           <h2 class="text-align-center" >Welcome back !</h2>
           <p class="text-align-center" >Login to continue </p>
